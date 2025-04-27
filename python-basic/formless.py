@@ -2,6 +2,7 @@ import os
 import asyncio
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
+from openai.types.chat import ChatCompletion
 
 load_dotenv()
 
