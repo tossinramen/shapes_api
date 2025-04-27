@@ -1,4 +1,5 @@
 import os
+import sys
 import asyncio
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
@@ -6,13 +7,24 @@ from openai.types.chat import ChatCompletion
 
 load_dotenv()
 
+
 async def main():
-    messages = [
-        {
-            "role": "user",
-            "content": "Hello. What is your name?",
-        }
-    ]
+    # If the user provided a message on the command line, use that one
+    args = sys.argv[1:]
+    if args:
+        messages = [
+            {
+                "role": "user",
+                "content": " ".join(args),
+            }
+        ]
+    else:
+        messages = [
+            {
+                "role": "user",
+                "content": "Hello. What is your name?",
+            }
+        ]
 
     try:
         # Check for SHAPESINC_USER_API_KEY in .env
@@ -26,7 +38,7 @@ async def main():
         )
 
         # Send the message to the Formless LLM. This will use the Formless model.
-        resp = await aclient_formless.chat.completions.create(
+        resp: ChatCompletion = await aclient_formless.chat.completions.create(
             model="shapesinc/Formless-70B-v1a",
             messages=messages,
         )

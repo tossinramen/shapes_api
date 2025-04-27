@@ -1,18 +1,31 @@
 import os
+import sys
 import asyncio
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
+from openai.types.chat import ChatCompletion
 
 load_dotenv()
 
+
 async def main():
-    # Depending on the shape personality and the history, this messge might trigger various reactions
-    messages = [
-        {
-            "role": "user",
-            "content": "Hello. What's your name?",
-        }
-    ]
+    # If the user provided a message on the command line, use that one
+    args = sys.argv[1:]
+    if args:
+        messages = [
+            {
+                "role": "user",
+                "content": " ".join(args),
+            }
+        ]
+    else:
+        # Depending on the shape personality and the history, this messge might trigger various reactions
+        messages = [
+            {
+                "role": "user",
+                "content": "Hello. What's your name?",
+            }
+        ]
 
     try:
         # Check for SHAPESINC_SHAPE_API_KEY in .env
@@ -27,7 +40,7 @@ async def main():
 
         # Send the message to the shape. This will use the shape configured model.
         # WARNING: If the shape is premium, this will also consume credits.
-        resp = await aclient_shape.chat.completions.create(
+        resp: ChatCompletion = await aclient_shape.chat.completions.create(
             model="shapesinc/shapes-api",
             messages=messages,
         )

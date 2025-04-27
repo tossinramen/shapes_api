@@ -1,0 +1,13 @@
+{
+  "name": "nodejs-basic",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "formless": "node formless.js",
+    "shape": "node shape.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "openai": "^4.0.0"
+  }
+}
