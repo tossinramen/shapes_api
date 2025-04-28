@@ -1,0 +1,53 @@
+{
+    "name": "@shapesinc/shape-voice",
+    "version": "0.1.0",
+    "description": "Shape Voice - an example of using the Shapes API to talk to your shape.",
+    "copyright": "Copyright © 2025 Shapes.Inc",
+    "author": {
+        "name": "Shapes Inc.",
+        "email": "hi@shapes.inc",
+        "url": "https://shapes.inc"
+    },
+    "keywords": [],
+    "license": "MIT",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shapesinc/api-examples.git"
+    },
+    "type": "module",
+    "scripts": {
+        "start": "vite",
+        "lint": "eslint . --report-unused-disable-directives --no-error-on-unmatched-pattern",
+        "build": "vite build --mode production"
+    },
+    "dependencies": {
+        "@deepgram/sdk": "^3.12.1",
+        "@huggingface/transformers": "^3.5.0",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "kokoro-js": "^1.2.0",
+        "lucide-react": "^0.503.0",
+        "openai": "^4.95.1",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "tailwind-merge": "^3.2.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.25.1",
+        "@tailwindcss/vite": "^4.1.4",
+        "@types/node": "^22.14.1",
+        "@types/react": "^19.1.2",
+        "@types/react-dom": "^19.1.2",
+        "@vitejs/plugin-react": "^4.4.1",
+        "@vitejs/plugin-react-swc": "^3.9.0",
+        "dotenv": "^16.5.0",
+        "eslint": "^9.25.1",
+        "eslint-plugin-react-hooks": "^6.0.0",
+        "eslint-plugin-react-refresh": "^0.4.19",
+        "globals": "^16.0.0",
+        "npm-check-updates": "^18.0.0",
+        "tailwindcss": "^4.1.4",
+        "vite": "^6.3.2"
+    }
+}
