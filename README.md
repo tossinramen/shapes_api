@@ -2,6 +2,8 @@
 
 This repository provides simple example projects demonstrating how to use the Formless and Shapes APIs in both Python and Node.js.
 
+More Docs: https://docs.google.com/document/d/1sr5MFgjCIbFITG1wF95RJPfFbwDpujKJ2ybXUQnC-B4
+
 ## Overview
 
 - **Formless API**: Chat completions endpoint for general-purpose LLM interactions.
