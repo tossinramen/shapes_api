@@ -22,7 +22,7 @@ handler = SlackRequestHandler(app)
 
 # Initialize the Shapes API client
 shapes_client = AsyncOpenAI(
-    api_key=os.environ.get("SHAPESINC_SHAPE_API_KEY"),
+    api_key=os.environ.get("SHAPESINC_API_KEY"),
     base_url="https://api.shapes.inc/v1/",
 )
 
@@ -30,7 +30,7 @@ shape_username = os.getenv("SHAPESINC_SHAPE_USERNAME")
 
 
 # Process messages with the Shapes API
-async def process_with_shapes(message_text):
+async def process_with_shapes(message_text, message_user_id, message_channel_id):
     """Process a message using the Shapes API"""
     try:
         messages = [
@@ -45,6 +45,10 @@ async def process_with_shapes(message_text):
         resp = await shapes_client.chat.completions.create(
             model=f"shapesinc/{shape_username}",
             messages=messages,
+            extra_headers={
+                "X-User-Id": message_user_id,
+                "X-Channel-Id": message_channel_id,
+            },
         )
 
         if resp.choices and len(resp.choices) > 0:
@@ -72,7 +76,12 @@ def message_handler(message, say):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     # here we use shapes client to process the message
-    response = loop.run_until_complete(process_with_shapes(message["text"]))
+    message_user_id = f"slack-user-{message['user']}"
+    message_channel_id = f"slack-channel-{message['channel']}"
+    message_text = message["text"]
+    response = loop.run_until_complete(
+        process_with_shapes(message_text, message_user_id, message_channel_id)
+    )
     loop.close()
 
     # Send the response back to Slack
@@ -101,8 +110,8 @@ def health_check():
 
 if __name__ == "__main__":
     # Check for Shapes API key
-    if not os.environ.get("SHAPESINC_SHAPE_API_KEY"):
-        print("Error: SHAPESINC_SHAPE_API_KEY not found in environment variables")
+    if not os.environ.get("SHAPESINC_API_KEY"):
+        print("Error: SHAPESINC_API_KEY not found in environment variables")
         sys.exit(1)
 
     # Run the Flask app

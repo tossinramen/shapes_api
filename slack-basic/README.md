@@ -119,9 +119,17 @@ Set Environment Variables
 ```
 heroku config:set SLACK_BOT_TOKEN=xoxb-your-bot-token --app slack-basic
 heroku config:set SLACK_SIGNING_SECRET=your-signing-secret --app slack-basic
-heroku config:set SHAPESINC_SHAPE_API_KEY=your-shapes-api-key --app slack-basic
+heroku config:set SHAPESINC_API_KEY=your-shapes-api-key --app slack-basic
 heroku config:set SHAPESINC_SHAPE_USERNAME=your-shapes-username --app slack-basic
 ```
+
+To get your shapes env variables:
+
+SHAPESINC_SHAPE_USERNAME
+It's your shape vanity username. You can find it when you go to your shape profile page on shapes.inc. Get the part after /shapes.inc/ in the url.
+
+SHAPESINC_API_KEY
+It's your shapes api key. You can find it when you go to your shape profile page on shapes.inc.
 
 # Deploy from current directory
 
@@ -156,7 +164,6 @@ message.channels
 
 6. Click "Save Changes"
 
-
 Now unleash your Shape!
 
 Step 1: Invite Your Bot to a Channel
@@ -175,3 +182,19 @@ Monitor your Heroku logs to see if your bot is receiving the events:
 heroku logs --tail --app slack-basic-385173ecf3f7
 
 Look for log entries showing the received message event
+
+# Shapes header parameter meaning
+
+The shapes client is a python client that is used to send messages to the shapes api. We have two header params that we need to pass in the request so your Shape can know who is speaking to it and where the conversation is happening. Thus if you are talking to your shape in one slack chanel, and then message to it in a second slack channel, it will reply to both channels seperately, with knowlege context sandboxed in the channel level.
+
+```
+X-User-Id: user_id
+```
+
+This is the user id of the user who sent the message. This allows the shape to know who is speaking to it.
+
+```
+X-Channel-Id: channel_id
+```
+
+This is the channel id of the channel where the message was sent. This allows the shape to know where to send the response.
