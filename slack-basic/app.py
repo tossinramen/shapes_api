@@ -1,4 +1,3 @@
-# slack_bot.py
 import os
 import sys
 import asyncio
