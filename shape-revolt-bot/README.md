@@ -1,20 +1,20 @@
-# Shape Revolt Bot
+# Shape Revolt Integration
 
-A simple chat bot for [Revolt](https://revolt.chat) that uses the Shapes API to generate responses when mentioned or messaged in DMs.
+An integration for [Revolt](https://revolt.chat) that allows your Shape (social agent) to have a presence on Revolt. This integration connects your Shape to Revolt via the Shapes API.
 
 ## Features
 
-- Responds to mentions in channels with AI-generated messages
-- Automatically handles direct messages
+- Allows your Shape to respond to mentions in Revolt channels
+- Automatically handles direct messages sent to your Shape
 - Connects to the Revolt Websocket API for real-time communication
-- Uses Shapes API with OpenAI-compatible client for AI-powered responses
+- Uses Shapes API with OpenAI-compatible client for your Shape's responses
 
 ## Prerequisites
 
 - Node.js (18+) and npm
 - A Revolt bot token (create one from the [Revolt Developer Portal](https://developers.revolt.chat))
 - A Shapes API key
-- A shape username
+- Your Shape username
 
 ## Setup
 
@@ -40,26 +40,26 @@ A simple chat bot for [Revolt](https://revolt.chat) that uses the Shapes API to 
 
 ## Usage
 
-1. Start the bot:
+1. Start the integration:
    ```
    npm start
    ```
 
-2. In any Revolt channel where the bot is present, tag the bot followed by your message:
+2. In any Revolt channel where your Shape is present, tag it followed by your message:
    ```
-   @BotName How are you today?
+   @YourShape How are you today?
    ```
 
-3. You can also DM the bot directly, and it will respond to all messages.
+3. You can also DM your Shape directly, and it will respond to all messages.
 
 ## How it Works
 
-The bot uses the Revolt WebSocket API to receive real-time messages. When it detects a mention or a DM, it:
+This integration uses the Revolt WebSocket API to provide your Shape with real-time message capabilities. When your Shape is mentioned or receives a DM, the integration:
 
 1. Extracts the user's message
-2. Sends the message to the Shapes API using the OpenAI client
-3. Returns the AI-generated response back to the Revolt chat
+2. Sends the message to the Shapes API using your Shape's identity
+3. Returns your Shape's response back to the Revolt chat
 
 ## Customization
 
-You can customize which shape personality is used by changing the `SHAPESINC_SHAPE_USERNAME` in your `.env` file. 
+You can use any of your Shapes by changing the `SHAPESINC_SHAPE_USERNAME` in your `.env` file. This allows you to give any of your Shapes a presence on Revolt. 
