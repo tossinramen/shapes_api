@@ -1,4 +1,4 @@
-# Basic Python examples for the Formless and Shapes APIs
+# Basic Python examples for the Shapes API
 
 ## Prerequisites
 
@@ -20,7 +20,6 @@ Copy the `.env.example` file to `.env` and add your API keys.
 
 ```bash
 source venv/bin/activate
-python formless.py
 python shape.py
 ```
 

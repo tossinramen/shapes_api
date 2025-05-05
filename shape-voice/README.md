@@ -1,6 +1,6 @@
 # Shape Voice
 
-Shape Voice is an example voice conversation web-app using the Shapes API.
+Shape Voice is an example voice conversational web-app using the Shapes API.
 
 ### Prerequisites:
 
