@@ -2,7 +2,7 @@
 
 This repository provides simple example projects demonstrating how to use the Shapes API in both Python and Node.js.
 
-More Docs: https://docs.google.com/document/d/1sr5MFgjCIbFITG1wF95RJPfFbwDpujKJ2ybXUQnC-B4
+For more details, see [API.md](API.md).
 
 ## Overview
 
