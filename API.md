@@ -37,6 +37,24 @@ The model names used for Shapes API are in the form of `shapesinc/<shape-usernam
 
 Using the external model name above does not affect the model you selected when you created the shape. Internally, your shape will still use the same base model you configured for it.
 
+### Custom Headers
+
+We support two custom headers that can be used to pass in the user and channel id.
+
+The shapes client is a python client that is used to send messages to the shapes api. We have two header params that we need to pass in the request so your Shape can know who is speaking to it and where the conversation is happening. Thus if you are talking to your shape in one slack chanel, and then message to it in a second slack channel, it will reply to both channels seperately, with knowlege context sandboxed in the channel level.
+
+```
+X-User-Id: user_id
+```
+
+This is the user id of the user who sent the message. This allows the shape to know who is speaking to it.
+
+```
+X-Channel-Id: channel_id
+```
+
+This is the channel id of the channel where the message was sent. This allows the shape to know where to send the response.
+
 ### API Endpoints
 
 We support OpenAI-compatible API endpoint that can be used with the OpenAI Python or Javascript client SDKs. The API supports only non-streaming requests.
@@ -135,21 +153,3 @@ console.log(response);
 - An app that allows you to iMessage with shapes
 - An app that allows you to SMS shapes
 - \[Todo\]
-
-# Custom Headers
-
-We support two custom headers that can be used to pass in the user and channel id.
-
-The shapes client is a python client that is used to send messages to the shapes api. We have two header params that we need to pass in the request so your Shape can know who is speaking to it and where the conversation is happening. Thus if you are talking to your shape in one slack chanel, and then message to it in a second slack channel, it will reply to both channels seperately, with knowlege context sandboxed in the channel level.
-
-```
-X-User-Id: user_id
-```
-
-This is the user id of the user who sent the message. This allows the shape to know who is speaking to it.
-
-```
-X-Channel-Id: channel_id
-```
-
-This is the channel id of the channel where the message was sent. This allows the shape to know where to send the response.
