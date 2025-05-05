@@ -20,8 +20,8 @@ export function App() {
     const audioRef = useRef(new Audio());
 
     const openai = new OpenAI({
-        apiKey: import.meta.env.VITE_SHAPESINC_SHAPE_API_KEY,
-        baseURL: "https://api.shapes.inc/formless/",
+        apiKey: import.meta.env.VITE_SHAPESINC_API_KEY,
+        baseURL: "https://api.shapes.inc/v1/",
         dangerouslyAllowBrowser: true,
     });
 
@@ -123,7 +123,7 @@ export function App() {
         setLoading(true);
         try {
             const completion = await openai.chat.completions.create({
-                model: 'shapesinc/shapes-api',
+                model: 'shapesinc/' + import.meta.env.VITE_SHAPESINC_SHAPE_USERNAME,
                 messages: [{ role: 'user', content: transcript }],
             });
             const response = completion.choices[0]?.message?.content || 'No response from AI';
