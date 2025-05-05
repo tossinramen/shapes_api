@@ -8,7 +8,7 @@ The Shapes API can be used to talk to your shape, whether or not they are connec
 
 ### Credit use
 
-NOTE: Premium shapes *WILL* use credits.
+NOTE: Premium shapes _WILL_ use credits.
 This is no different than using your premium shape on platforms like X. So plan accordingly.
 
 ### Limitations
