@@ -2,13 +2,11 @@
 import os
 import sys
 import asyncio
-import requests
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
-from openai.types.chat import ChatCompletion
 
 # Load environment variables
 load_dotenv()
@@ -26,8 +24,10 @@ handler = SlackRequestHandler(app)
 # Initialize the Shapes API client
 shapes_client = AsyncOpenAI(
     api_key=os.environ.get("SHAPESINC_SHAPE_API_KEY"),
-    base_url="https://api.shapes.inc/formless/",
+    base_url="https://api.shapes.inc/v1/",
 )
+
+shape_username = os.getenv("SHAPESINC_SHAPE_USERNAME")
 
 
 # Process messages with the Shapes API
@@ -41,9 +41,10 @@ async def process_with_shapes(message_text):
             }
         ]
 
-        # Send the message to the shape
+        # Send the message to the shape. This will use the shape configured model.
+        # WARNING: If the shape is premium, this will also consume credits.
         resp = await shapes_client.chat.completions.create(
-            model="shapesinc/shapes-api",
+            model=f"shapesinc/{shape_username}",
             messages=messages,
         )
 
@@ -51,7 +52,8 @@ async def process_with_shapes(message_text):
             return resp.choices[0].message.content
         else:
             print(f"No choices in response: {resp}")
-            return "I couldn't process that message."
+            final_response = resp.choices[0].message.content
+            return final_response
 
     except Exception as e:
         print(f"Error processing with Shapes API: {e}")
@@ -81,6 +83,14 @@ def message_handler(message, say):
 # Endpoint for Slack events
 @flask_app.route("/slack/events", methods=["POST"])
 def slack_events():
+    print(f"Received Slack event: {request.json}")
+    # parse the challeneged parameter
+    challenge = request.json.get("challenge")
+    event_type = request.json.get("type")
+    if challenge and event_type == "url_verification":
+        # respond to the challenge parameter quickly
+        challenge_response = jsonify({"challenge": challenge})
+        return challenge_response
     return handler.handle(request)
 
 
