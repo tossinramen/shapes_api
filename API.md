@@ -8,7 +8,7 @@ The Shapes API can be used to talk to your shape, whether or not they are connec
 
 ### Credit use
 
-NOTE: Premium shapes *WILL* use credits.
+NOTE: Premium shapes _WILL_ use credits.
 This is no different than using your premium shape on platforms like X. So plan accordingly.
 
 ### Limitations
@@ -17,15 +17,17 @@ Since Shapes APi will rely on the model the shape is configured with, we cannot 
 
 In particular, Shapes API will not support initially:
 
-* System/developer role message \- these are already part of the shape settings
-* Multiple messages/message history \- for now we rely on the Shape memory for this, no need to specify these. Essentially, we ignore all other messages except the last role=”user” message in the request.
-* Streaming requests \- for now shapes API will be limited to non-streaming responses only
-* Tool calls \- not all models support tool calls. We might enable this for specific models later
-* Temperature, and other parameters that can be sent normally \- this is to prevent unwanted changes to the shape personality as configured in the shape settings
+- System/developer role message \- these are already part of the shape settings
+- Multiple messages/message history \- for now we rely on the Shape memory for this, no need to specify these. Essentially, we ignore all other messages except the last role=”user” message in the request.
+- Streaming requests \- for now shapes API will be limited to non-streaming responses only
+- Tool calls \- not all models support tool calls. We might enable this for specific models later
+- Temperature, and other parameters that can be sent normally \- this is to prevent unwanted changes to the shape personality as configured in the shape settings
 
 ### Rate limits
 
 To ensure stability of the shapes, the Shapes API will be heavily rate limited. If the standard limits don't work for you, we can increase those on a shape-by-shape basis, to ensure a smooth experience for all users of the shape.
+
+Send us an email at hi@shapes.inc to ask for a rate limit increase.
 
 ## How to use the Shapes API?
 
@@ -34,6 +36,24 @@ To ensure stability of the shapes, the Shapes API will be heavily rate limited. 
 The model names used for Shapes API are in the form of `shapesinc/<shape-username>`. For example, if your shape username is `archibald-brave`, the model name to use the API with the shape would be `shapesinc/archibald-brave`.
 
 Using the external model name above does not affect the model you selected when you created the shape. Internally, your shape will still use the same base model you configured for it.
+
+### Custom Headers
+
+We support two custom headers that can be used to pass in the user and channel id.
+
+The shapes client is a python client that is used to send messages to the shapes api. We have two header params that we need to pass in the request so your Shape can know who is speaking to it and where the conversation is happening. Thus if you are talking to your shape in one slack chanel, and then message to it in a second slack channel, it will reply to both channels seperately, with knowlege context sandboxed in the channel level.
+
+```
+X-User-Id: user_id
+```
+
+This is the user id of the user who sent the message. This allows the shape to know who is speaking to it.
+
+```
+X-Channel-Id: channel_id
+```
+
+This is the channel id of the channel where the message was sent. This allows the shape to know where to send the response.
 
 ### API Endpoints
 

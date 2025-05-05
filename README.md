@@ -34,3 +34,17 @@ Each example directory includes a `.env.example` you can copy as `.env` and add 
 
 ---
 © 2025 Shapes Inc.
+
+## Contributing
+
+We are adding integrations with more platforms all the time. If you don't see your platform here, fork this repo, add it, and submit a PR.
+
+## Integrations
+
+| Integration Name | Folder Name | Status | Author |
+|------------------|-------------|--------|--------|
+| Python Basic | python-basic | Complete | Shapes Inc |
+| Node.js Basic | node-basic | Complete | Shapes Inc |
+| Shape Voice | shape-voice | Complete | Shapes Inc |
+| Slack Bot | shape-slack | Complete | Shapes Inc |
+
