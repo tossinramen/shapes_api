@@ -36,16 +36,23 @@ async function processWithShapes(content, userId, threadId) {
   try {
     console.log('Sending to Shapes API:', content);
     
+    // Create headers object - only include X-Channel-Id if threadId exists
+    const headers = {
+      "X-User-Id": userId
+    };
+    
+    // Only add X-Channel-Id if threadId is provided
+    if (threadId) {
+      headers["X-Channel-Id"] = threadId;
+    }
+    
     // Call the Shapes API using the OpenAI SDK
     const response = await shapes.chat.completions.create({
       model: `shapesinc/${SHAPES_USERNAME}`,
       messages: [
         { role: "user", content: content }
       ],
-      extra_headers: {
-        "X-User-Id": userId,
-        "X-Channel-Id": threadId || 'bluesky-dm'
-      }
+      extra_headers: headers
     });
     
     // Extract response
