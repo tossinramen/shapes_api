@@ -12,7 +12,8 @@ For more details, see [API.md](API.md).
 
 ## Getting Started
 Every API Key is tied to a specific Shape. You can provision up to 5 of them. Here's how to grab your Key: 
-<img width="824" alt="image" src="https://github.com/user-attachments/assets/0f68871b-5ebd-4bfa-b11d-3fd407821e1b" />
+<img width="807" alt="image" src="https://github.com/user-attachments/assets/ead6f28a-300b-4dcf-a555-313b39656ad6" />
+
 
 ## Overview
 You can use the Shapes API in both Python and Node.js.
