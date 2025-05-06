@@ -20,7 +20,7 @@ Copy the `.env.example` file to `.env` and add your API keys.
 
 ```bash
 source venv/bin/activate
-python shape.py [--user-id USER_ID] [--channel-id CHANNEL_ID] [message]
+python main.py [--user-id USER_ID] [--channel-id CHANNEL_ID] [message]
 ```
 
 ### Command Line Arguments
@@ -33,13 +33,13 @@ python shape.py [--user-id USER_ID] [--channel-id CHANNEL_ID] [message]
 
 ```bash
 # Basic usage with a message
-python shape.py Hello, how are you today?
+python main.py Hello, how are you today?
 
 # With user and channel IDs
-python shape.py --user-id user123 --channel-id channel456 Tell me about yourself
+python main.py --user-id user123 --channel-id channel456 Tell me about yourself
 
 # Just specifying IDs with default message
-python shape.py --user-id user123 --channel-id channel456
+python main.py --user-id user123 --channel-id channel456
 ```
 
 ------------------
