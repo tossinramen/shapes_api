@@ -53,4 +53,5 @@ We are adding integrations with more platforms all the time. If you don't see yo
 | Slack Account | shape-slack | ✅ | Shapes, Inc |
 | Bluesky Account | shape-bluesky | ✅ | Shapes, Inc. |
 | Revolt Account | shape-revolt | ✅ | Shapes, Inc |
+| IRC | shape-irc | ✅ | Shapes, Inc |
 
