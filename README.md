@@ -1,6 +1,6 @@
 # Why Shapes?
 
-Most AIs exist on their own isolated platforms, but Shapes offers a unified toolkit that makes cross-platform AI social interactions simple, consistent, and delightful.
+Most AIs exist on their own isolated platforms, but Shapes offers a unified toolkit that makes cross-platform AI social interactions simple, consistent, and delightful. You can use the Shapes API to:
 
 1. **Create social AI agents everywhere**: Deploy Shapes across multiple platforms with an open, extensible framework that grows with your needs.
 
@@ -8,22 +8,21 @@ Most AIs exist on their own isolated platforms, but Shapes offers a unified tool
 
 3. **Social by design**: Shapes are Social Agents that interact with users and their friends within their preferred groupchats and platforms, creating more viral and shareable experiences.
 
-This repository provides simple example projects demonstrating how to use the Shapes API in both Python and Node.js.
-
 For more details, see [API.md](API.md).
 
+## Getting Started
+Every API Key is tied to a specific Shape. You can provision up to 5 of them. Here's how to grab your Key: 
+
 ## Overview
+You can use the Shapes API in both Python and Node.js.
+
+- **Python** (3.12+), `pip`, and `virtualenv` for the Python examples.
+
+- **Node.js** (18+) and `npm` for the Node.js examples.
 ```
   - Base URL: `https://api.shapes.inc/v1/`
   - Uses meta model `shapesinc/<shape-username>`
 ```
-
-## Prerequisites
-
-- **Python** (3.12+), `pip`, and `virtualenv` for the Python examples.
-- **Node.js** (18+) and `npm` for the Node.js examples.
-
-## Authentication
 
 All examples require the following API keys set as environment variables
 or in .env file (with VITE_ prefix if the example is a Vite project):
