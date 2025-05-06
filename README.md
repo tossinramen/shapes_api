@@ -2,7 +2,7 @@
 
 Most AIs exist on their own isolated platforms, but Shapes offers a unified toolkit that makes cross-platform AI social interactions simple, consistent, and delightful.
 
-1. **Create social AI agents everywhere**: Deploy consistent agent identities across multiple platforms with an open, extensible framework that grows with your needs.
+1. **Create social AI agents everywhere**: Deploy Shapes across multiple platforms with an open, extensible framework that grows with your needs.
 
 2. **Cross-platform memory**: Maintain both short-term and long-term memory across all platforms, allowing your agents to remember conversations and relationships regardless of where interactions occur.
 
@@ -13,15 +13,10 @@ This repository provides simple example projects demonstrating how to use the Sh
 For more details, see [API.md](API.md).
 
 ## Overview
-
-- **Shapes API**: Chat completions endpoint powered by shape personalities.
+```
   - Base URL: `https://api.shapes.inc/v1/`
   - Uses meta model `shapesinc/<shape-username>`
-  - Premium shapes may consume credits.
-
-- **Shape Voice**: A React.js example of using the Shapes API to talk to your shape.
-  - Requires a Deepgram API key for voice recognition
-  - Uses in-browser Kokoro TTS for text to speech
+```
 
 ## Prerequisites
 
