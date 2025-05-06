@@ -21,21 +21,15 @@ from openai.types.chat import ChatCompletion
 load_dotenv()
 
 class IRCBot(irc.bot.SingleServerIRCBot):
-    def __init__(self, nickname, server, channel, port=6697, dev_mode=False):
+    def __init__(self, nickname, server, channel, port=6697):
         # Initialize OpenAI client for Shapes API
         self.shape_api_key = os.getenv("SHAPESINC_API_KEY")
         self.shape_username = nickname
-        self.dev_mode = dev_mode
         
         if not self.shape_api_key:
             print("Warning: SHAPESINC_API_KEY not found in .env")
         
-        # Use localhost:8080 in dev mode, otherwise use the Shapes API
-        if self.dev_mode:
-            self.api_base_url = "http://localhost:8080/v1"
-            print(f"DEV MODE: Using local server at {self.api_base_url}")
-        else:
-            self.api_base_url = "https://api.shapes.inc/v1"
+        self.api_base_url = "https://api.shapes.inc/v1"
             
         self.aclient_shape = AsyncOpenAI(
             api_key=self.shape_api_key,
@@ -160,14 +154,10 @@ class IRCBot(irc.bot.SingleServerIRCBot):
             print(f"Error generating response: {e}")
             return "Sorry, I encountered an error while generating a response."
 
-async def get_shape_name(api_key, dev_mode=False):
+async def get_shape_name(api_key):
     """Fetch the shape name from the API."""
     try:
-        # Determine base URL based on dev mode
-        if dev_mode:
-            base_url = "http://localhost:8080/v1"
-        else:
-            base_url = "https://api.shapes.inc/v1"
+        base_url = "https://api.shapes.inc/v1"
             
         url = f"{base_url}/shape_name"
         
@@ -196,7 +186,6 @@ def main():
     parser.add_argument('--server', required=True, help='IRC server to connect to')
     parser.add_argument('--shape', help='Shape name to use (will be used as nickname)')
     parser.add_argument('--port', type=int, default=6697, help='IRC server port (default: 6697 for SSL)')
-    parser.add_argument('--dev', action='store_true', help='Use local development server at localhost:8080')
     
     args = parser.parse_args()
     
@@ -204,9 +193,6 @@ def main():
     channel = args.channel
     if not channel.startswith("#"):
         channel = f"#{channel}"
-    
-    # Check if dev mode is enabled
-    dev_mode = args.dev
     
     # Get the API key from environment
     api_key = os.getenv("SHAPESINC_API_KEY")
@@ -220,7 +206,7 @@ def main():
     else:
         # Fetch the shape name from the API
         print("No shape name provided, fetching from API...")
-        nickname = asyncio.run(get_shape_name(api_key, dev_mode))
+        nickname = asyncio.run(get_shape_name(api_key))
         if not nickname:
             print("Error: Could not fetch shape name from API")
             sys.exit(1)
@@ -229,7 +215,7 @@ def main():
     server = args.server
     port = args.port
     
-    bot = IRCBot(nickname, server, channel, port, dev_mode=dev_mode)
+    bot = IRCBot(nickname, server, channel, port)
     try:
         print(f"Connecting to {server}:{port} as {nickname}...")
         bot.start()
