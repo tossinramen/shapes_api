@@ -33,7 +33,7 @@ python main.py --channel IRC_CHANNEL --server IRC_SERVER [--shape SHAPE_NAME]
 ### Examples
 
 ```bash
-# Basic usage with a message
+# Basic usage
 python main.py --channel foobar --server irc.libera.chat
 ```
 
