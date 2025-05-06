@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import os
-import sys
 import asyncio
+import argparse
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 from openai.types.chat import ChatCompletion
@@ -10,14 +10,19 @@ from openai.types.chat import ChatCompletion
 load_dotenv()
 
 
-async def main():
+async def run():
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description='Interact with Shapes API')
+    parser.add_argument('message', nargs='*', help='Message to send to the shape')
+
+    args = parser.parse_args()
+
     # If the user provided a message on the command line, use that one
-    args = sys.argv[1:]
-    if args:
+    if args.message:
         messages = [
             {
                 "role": "user",
-                "content": " ".join(args),
+                "content": " ".join(args.message),
             }
         ]
     else:
@@ -53,7 +58,7 @@ async def main():
             model=f"shapesinc/{shape_username}",
             messages=messages,
         )
-        print(f"Raw response: {resp}")
+        print(f"Raw response: {resp}\n")
 
         if resp.choices and len(resp.choices) > 0:
             final_response = resp.choices[0].message.content
@@ -65,5 +70,9 @@ async def main():
         print(f"Error: {e}")
 
 
+def main():
+    asyncio.run(run())
+
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

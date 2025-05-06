@@ -68,7 +68,7 @@ After configuring permissions, install your app to your workspace. You'll receiv
 Step 5: Create Your Backend API
 Now you'll need to create a server to process messages and send replies.
 
-You can use the app.py file as a starting point. All you need to do is create a simple server that will pickup slack events, you use the shapes client to process the message and then send the response back to slack using the slack bolt framework.
+You can use the main.py file as a starting point. All you need to do is create a simple server that will pickup slack events, you use the shapes client to process the message and then send the response back to slack using the slack bolt framework.
 
 How it works:
 
@@ -82,7 +82,7 @@ Run it locally:
 
 ```
 pip install -r requirements.txt
-python app.py
+python main.py
 ```
 
 Deploy it to heroku:

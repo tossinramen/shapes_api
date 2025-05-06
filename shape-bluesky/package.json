@@ -2,7 +2,7 @@
     "name": "@shapesinc/shape-bluesky-bot",
     "version": "0.1.0",
     "description": "Shape Bluesky Bot - an example of using the Shapes API with a Bluesky (AT Protocol) bot.",
-    "copyright": "Copyright © 2025 Shapes.Inc",
+    "copyright": "Copyright © 2025 Shapes, Inc",
     "author": {
         "name": "Shapes Inc.",
         "email": "hi@shapes.inc",
@@ -32,4 +32,4 @@
         "dotenv": "^16.5.0",
         "openai": "^4.97.0"
     }
-} 
+}

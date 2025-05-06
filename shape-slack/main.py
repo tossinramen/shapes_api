@@ -108,7 +108,7 @@ def health_check():
     return jsonify({"status": "ok"})
 
 
-if __name__ == "__main__":
+def main():
     # Check for Shapes API key
     if not os.environ.get("SHAPESINC_API_KEY"):
         print("Error: SHAPESINC_API_KEY not found in environment variables")
@@ -116,3 +116,7 @@ if __name__ == "__main__":
 
     # Run the Flask app
     flask_app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 3000)))
+
+
+if __name__ == "__main__":
+    main()

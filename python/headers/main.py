@@ -1,5 +1,6 @@
+#!/usr/bin/env python3
+
 import os
-import sys
 import asyncio
 import argparse
 from dotenv import load_dotenv
@@ -9,15 +10,15 @@ from openai.types.chat import ChatCompletion
 load_dotenv()
 
 
-async def main():
+async def run():
     # Set up argument parser
     parser = argparse.ArgumentParser(description='Interact with Shapes API')
     parser.add_argument('--user-id', help='User ID for the request')
     parser.add_argument('--channel-id', help='Channel ID for the conversation context')
     parser.add_argument('message', nargs='*', help='Message to send to the shape')
-    
+
     args = parser.parse_args()
-    
+
     # If the user provided a message on the command line, use that one
     if args.message:
         messages = [
@@ -49,7 +50,7 @@ async def main():
 
         # Setup extra headers for the API request
         extra_headers = {}
-        
+
         # X-User-ID header
         # If not provided, all requests will be attributed to
         # the user who owns the API key. This will cause unexpected behavior if you are using the same API
@@ -57,7 +58,7 @@ async def main():
         # user-specific API key for each user.
         if args.user_id:
             extra_headers["X-User-ID"] = args.user_id
-            
+
         # X-Channel-ID header
         # Identifies the specific channel or conversation context for this message.
         # If not provided, the shape will think everything is coming from a big unified channel
@@ -77,7 +78,7 @@ async def main():
             messages=messages,
             extra_headers=extra_headers,
         )
-        print(f"Raw response: {resp}")
+        print(f"Raw response: {resp}\n")
 
         if resp.choices and len(resp.choices) > 0:
             final_response = resp.choices[0].message.content
@@ -89,5 +90,9 @@ async def main():
         print(f"Error: {e}")
 
 
+def main():
+    asyncio.run(run())
+
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

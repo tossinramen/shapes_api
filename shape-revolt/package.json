@@ -2,7 +2,7 @@
     "name": "@shapesinc/shape-revolt-bot",
     "version": "0.1.0",
     "description": "Shape Revolt Bot - an example of using the Shapes API with a Revolt chat bot.",
-    "copyright": "Copyright © 2025 Shapes.Inc",
+    "copyright": "Copyright © 2025 Shapes, Inc",
     "author": {
         "name": "Shapes Inc.",
         "email": "hi@shapes.inc",
@@ -31,4 +31,4 @@
         "openai": "^4.97.0",
         "ws": "^8.16.0"
     }
-} 
+}

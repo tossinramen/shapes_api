@@ -1,7 +1,7 @@
 #!/bin/bash
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install .
 
 echo "Setup complete."
 echo "Activate the virtual environment with 'source venv/bin/activate'"
