@@ -45,10 +45,10 @@ We are adding integrations with more platforms all the time. If you don't see yo
 
 | Integration Name | Folder Name | Status | Author |
 |------------------|-------------|--------|--------|
-| Python Basic | python-basic | Complete | Shapes, Inc |
-| Node.js Basic | node-basic | Complete | Shapes, Inc |
-| Shape Voice | shape-voice | Complete | Shapes, Inc |
-| Slack Account | shape-slack | Complete | Shapes, Inc |
-| Bluesky Account | shape-bluesky | Complete | Shapes, Inc. |
-| Revolt Account | shape-revolt | Complete | Shapes, Inc |
+| Python Basic | python-basic | ✅ | Shapes, Inc |
+| Node.js Basic | node-basic | ✅ | Shapes, Inc |
+| Shape Voice | shape-voice | ✅ | Shapes, Inc |
+| Slack Account | shape-slack | ✅ | Shapes, Inc |
+| Bluesky Account | shape-bluesky | ✅ | Shapes, Inc. |
+| Revolt Account | shape-revolt | ✅ | Shapes, Inc |
 
