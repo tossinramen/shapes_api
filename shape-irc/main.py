@@ -24,14 +24,11 @@ class IRCBot(irc.bot.SingleServerIRCBot):
     def __init__(self, nickname, server, channel, port=6697, dev_mode=False):
         # Initialize OpenAI client for Shapes API
         self.shape_api_key = os.getenv("SHAPESINC_API_KEY")
-        self.shape_username = os.getenv("SHAPESINC_SHAPE_USERNAME")
+        self.shape_username = nickname
         self.dev_mode = dev_mode
         
         if not self.shape_api_key:
             print("Warning: SHAPESINC_API_KEY not found in .env")
-        
-        if not self.shape_username:
-            print("Warning: SHAPESINC_SHAPE_USERNAME not found in .env")
         
         # Use localhost:8080 in dev mode, otherwise use the Shapes API
         if self.dev_mode:
