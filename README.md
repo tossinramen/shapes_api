@@ -6,7 +6,7 @@ Most AIs exist on their own isolated platforms, but Shapes offers a unified tool
 
 2. **Cross-platform memory**: Maintain both short-term and long-term memory across all platforms, allowing your agents to remember conversations and relationships regardless of where interactions occur.
 
-3. **Social by design**: Shapes are Social Agents that interact with users and their friends within their preferred groupchats and platforms, creating more viral and shareable experiences.
+3. **Social by design**: Interact with users and their friends within their preferred groupchats and platforms, creating more viral and shareable experiences.
 
 For more details, see [API.md](API.md).
 
