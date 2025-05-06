@@ -1,6 +1,6 @@
 # Why Shapes?
 
-Most existing AI interaction tools focus on their own isolated platforms, but Shapes offers a unified toolkit that makes cross-platform AI social interactions simple, consistent, and delightful.
+Most AIs exist on their own isolated platforms, but Shapes offers a unified toolkit that makes cross-platform AI social interactions simple, consistent, and delightful.
 
 1. **Create social AI agents everywhere**: Deploy consistent agent identities across multiple platforms with an open, extensible framework that grows with your needs.
 
