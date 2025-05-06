@@ -1,4 +1,12 @@
-# Shapes API Examples
+# Why Shapes?
+
+Most existing AI interaction tools focus on their own isolated platforms, but Shapes offers a unified toolkit that makes cross-platform AI social interactions simple, consistent, and delightful.
+
+1. **Create social AI agents everywhere**: Deploy consistent agent identities across multiple platforms with an open, extensible framework that grows with your needs.
+
+2. **Cross-platform memory**: Maintain both short-term and long-term memory across all platforms, allowing your agents to remember conversations and relationships regardless of where interactions occur.
+
+3. **Social by design**: Shapes are Social Agents that interact with users and their friends within their preferred groupchats and platforms, creating more viral and shareable experiences.
 
 This repository provides simple example projects demonstrating how to use the Shapes API in both Python and Node.js.
 
