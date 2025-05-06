@@ -25,7 +25,10 @@ python main.py --channel IRC_CHANNEL --server IRC_SERVER [--shape SHAPE_NAME]
 
 ### Command Line Arguments
 
-TODO
+- `--channel`: (Required) IRC channel to join (can be provided with or without the # prefix)
+- `--server`: (Required) IRC server to connect to
+- `--shape`: (Optional) Shape name to use as the bot's nickname. If not provided, the bot will attempt to fetch the shape name from the API
+- `--port`: (Optional) IRC server port (default: 6697 for SSL)
 
 ### Examples
 
