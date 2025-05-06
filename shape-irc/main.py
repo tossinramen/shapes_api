@@ -72,12 +72,8 @@ class IRCBot(irc.bot.SingleServerIRCBot):
             
         print(f"Message from {sender}: {message}")
         
-        # Check if the message is the !wack command
-        if message.strip() == "!wack":
-            response = asyncio.run(self.handle_wack_command())
-        else:
-            # Generate a response using the LLM
-            response = asyncio.run(self.generate_llm_response(sender, message))
+        # Generate a response using the LLM
+        response = asyncio.run(self.generate_llm_response(sender, message))
         
         if response:
             # Clean the response by replacing newlines and carriage returns with spaces
@@ -85,36 +81,6 @@ class IRCBot(irc.bot.SingleServerIRCBot):
             print(f"Sending to IRC: {clean_response}")
             # Send the response to the channel
             connection.privmsg(self.channel, clean_response)
-            
-    async def handle_wack_command(self):
-        """Handle the !wack command by hitting the /wack endpoint."""
-        try:
-            if not self.shape_api_key or not self.shape_username:
-                print("Not configured to handle wack command")
-                return None
-                
-            # Construct the full URL with the model parameter using the global base_url
-            url = f"{self.api_base_url}/wack?model=shapesinc/{self.shape_username}"
-            
-            print(f"Sending request to: {url}")
-            
-            async with aiohttp.ClientSession() as session:
-                async with session.post(url, headers={
-                    "Authorization": f"Bearer {self.shape_api_key}",
-                    "X-Channel-Id": self.channel
-                }) as response:
-                    if response.status == 200:
-                        result = await response.text()
-                        print(f"Wack response: {result}")
-                        return "*ouch*"
-                    else:
-                        error_text = await response.text()
-                        print(f"Error from wack endpoint: {response.status} - {error_text}")
-                        return None
-                        
-        except Exception as e:
-            print(f"Error handling wack command: {e}")
-            return None
             
     async def generate_llm_response(self, sender, message):
         """Generate a response using the Shapes LLM API."""
