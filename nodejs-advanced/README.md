@@ -1,4 +1,6 @@
-# Basic Node.js examples for the Shapes API
+# Advanced Node.js examples for the Shapes API
+
+This example demonstrated how to use tools with your shape.
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 {
-    "name": "@shapesinc/nodejs-basic",
+    "name": "@shapesinc/nodejs-advanced",
     "version": "1.0.0",
-    "description": "A basic example of using the Shapes.Inc API to talk to your shape.",
+    "description": "An advanced example of using the Shapes.Inc API to talk to your shape.",
     "copyright": "Copyright © 2025 Shapes.Inc",
     "author": {
         "name": "Shapes Inc.",

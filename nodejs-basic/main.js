@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { config } from "dotenv";
 import OpenAI from "openai";
 
@@ -19,7 +21,7 @@ async function main() {
     }
 
     // Create the client with the shape API key and the Shapes API base URL
-    const openai = new OpenAI({
+    const shapes_client = new OpenAI({
       apiKey: shape_api_key,
       baseURL: "https://api.shapes.inc/v1/"
     });
@@ -31,7 +33,7 @@ async function main() {
     ];
 
     // Send the message to the Shapes API. This will use the shapes-api model.
-    const resp = await openai.chat.completions.create({
+    const resp = await shapes_client.chat.completions.create({
       model: `shapesinc/${shape_username}`,
       messages: messages,
     });
