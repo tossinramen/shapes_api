@@ -1,7 +1,7 @@
 {
-    "name": "@shapesinc/nodejs-image",
+    "name": "@shapesinc/nodejs-http",
     "version": "1.0.0",
-    "description": "An example of using the Shapes API to send an image to your shape.",
+    "description": "An example of making HTTP requests to your shape using the Shapes API.",
     "copyright": "Copyright © 2025 Shapes, Inc",
     "author": {
         "name": "Shapes Inc.",
