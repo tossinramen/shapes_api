@@ -38,7 +38,7 @@ Homepage = "https://shapes.inc"
 Repository = "https://github.com/shapesinc/api.git"
 
 [project.scripts]
-shape = "main:main"
+shape-http = "main:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
