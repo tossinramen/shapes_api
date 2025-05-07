@@ -12,7 +12,7 @@ An integration for [Revolt](https://revolt.chat) that allows your Shape (social 
 ## Prerequisites
 
 - Node.js (18+) and npm
-- A Revolt bot token (create one from the [Revolt Developer Portal](https://developers.revolt.chat))
+- A Revolt bot token (create one from the Revolt app)
 - A Shapes API key
 - Your Shape username
 
@@ -37,6 +37,12 @@ An integration for [Revolt](https://revolt.chat) that allows your Shape (social 
    SHAPESINC_API_KEY=your-shapes-api-key
    SHAPESINC_SHAPE_USERNAME=your-shape-username
    ```
+
+   ## Picture Guide to Setup
+
+   ![Revolt Bot Setup Picture Guide](https://github.com/user-attachments/assets/977b2c8f-3be8-4a09-9683-caf0a02188ed)
+   
+   Link to Shapes Developer portal: [Shapes Dev Portal](https://shapes.inc/developer)
 
 ## Usage
 
@@ -63,3 +69,21 @@ This integration uses the Revolt WebSocket API to provide your Shape with real-t
 ## Customization
 
 You can use any of your Shapes by changing the `SHAPESINC_SHAPE_USERNAME` in your `.env` file. This allows you to give any of your Shapes a presence on Revolt. 
+
+
+
+
+# Sorayai's Updates
+## -Added picture guide for Revolt bot token + .env setup
+
+## -Updating index.js
+   1-Added code for debugging
+   
+   2-Added code to fix error: 
+  status: 400,
+  data: !DOCTYPE html
+    
+  3-Added chunking code so Shapes on Revolt don't error out when sending long messages 
+    
+ 
+
