@@ -1,8 +1,6 @@
-# Tools usage example for the Shapes API
+# HTTP example for the Shapes API
 
-This example demonstrated how to use tools with your shape.
-
-**NOTE: Tools are temporarily disabled, so the example will not work until the feature is re-enabled.**
+This example demonstrated how to send an HTTP request to your shape.
 
 ## Prerequisites
 
