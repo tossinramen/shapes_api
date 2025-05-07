@@ -64,6 +64,22 @@ async function main() {
             required: ["query"]
           }
         }
+      },
+      {
+        type: "function",
+        function: {
+          name: "send_email",
+          description: "Send an email",
+          parameters: {
+            type: "object",
+            properties: {
+              to: { type: "string" },
+              subject: { type: "string" },
+              body: { type: "string" }
+            },
+            required: ["to", "subject", "body"]
+          }
+        }
       }
     ];
 
@@ -119,9 +135,40 @@ async function main() {
           // Append tool result message
           messages.push({
             role: "tool",
+            content: JSON.stringify([
+              {
+                from: "Sparkles",
+                body: "My Little Pony is the best!"
+              },
+              {
+                from: "Sparkles",
+                body: "The best show ever! The power of friendship and loyalty is unmatched."
+              },
+              {
+                from: "Sparkles",
+                body: "hey, I got the job! I will be an actor! See you on TV!"
+              }
+            ]),
+            tool_call_id: tool_call.id
+          });
+        }
+        if (tool_call.function.name === "send_email") {
+          // Parse arguments
+          const args = JSON.parse(tool_call.function.arguments);
+          const to = args.to;
+          const subject = args.subject;
+          const body = args.body;
+
+          console.log("Sending email to:\n", to, "\nsubject:\n", subject, "\nbody:\n", body);
+
+          // Append tool result message
+          messages.push({
+            role: "tool",
             content: JSON.stringify({
-              from: "Sparkles",
-              body: "My Little Pony is the best!"
+              to: to,
+              subject: subject,
+              body: body,
+              result: "Email sent successfully"
             }),
             tool_call_id: tool_call.id
           });
