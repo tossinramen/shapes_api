@@ -3,7 +3,7 @@ import sys
 import asyncio
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, request
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
@@ -27,6 +27,9 @@ shapes_client = AsyncOpenAI(
 )
 
 shape_username = os.getenv("SHAPESINC_SHAPE_USERNAME")
+
+DEFAULT_LOGS_SECRET = "default_secret"
+LOGS_SECRET = os.environ.get("LOGS_SECRET", DEFAULT_LOGS_SECRET)
 
 
 # Process messages with the Shapes API
@@ -89,7 +92,7 @@ def message_handler(message, say):
 
 
 # Endpoint for Slack events
-@flask_app.route("/slack/events", methods=["POST"])
+@flask_app.route("/", methods=["POST"])
 def slack_events():
     print(f"Received Slack event: {request.json}")
     # parse the challeneged parameter
@@ -103,9 +106,17 @@ def slack_events():
 
 
 # Health check endpoint
-@flask_app.route("/", methods=["GET"])
+@flask_app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "ok"})
+
+
+# view logs endpoint
+@flask_app.route("/logs", methods=["GET", "POST"])
+def logs_route():
+    from logs import view_logs
+
+    return view_logs()
 
 
 def main():
