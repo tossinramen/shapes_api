@@ -1,57 +1,158 @@
-# Why Shapes?
+# Shapes API
+<img width="582" alt="image" src="https://github.com/user-attachments/assets/f514fc2a-6ed6-4c54-bbf6-a46755ced446" />
 
-Most AIs exist on their own isolated platforms, but Shapes offers a unified toolkit that makes cross-platform AI social interactions simple, consistent, and delightful. You can use the Shapes API to:
+[Shapes](https://shapes.inc) are general purpose social agents. You can build for an [existing shape](https://shapes.inc/explore) from our catalogue of millions or [create](https://shapes.inc/create) your own. Shapes have rich personalities, love hanging out in groupchats, and short-term + long-term memory across platforms.
 
-1. **Create social AI agents everywhere**: Deploy Shapes across multiple platforms with an open, extensible framework that grows with your needs.
+The Shapes API enables developers to connect Shapes across social platforms, games, and other applications. Shapes can meet you anywhere, from your favorite social app or a new project. 
 
-2. **Cross-platform memory**: Maintain both short-term and long-term memory across all platforms, allowing your agents to remember conversations and relationships regardless of where interactions occur.
+## Open Source Contributions
+Our API is designed with extensibility as a core principle. You can extend any Shape for tool calling, MCP, and more.
 
-3. **Social by design**: Interact with users and their friends within their preferred groupchats and platforms, creating more viral and shareable experiences.
+Star and contribute to this repository to receive complimentary hosting for your integration,. We will also be directing traffic from our user base to your integration.
 
-For more details, see [API.md](API.md).
+## What is the Shapes API?
+Shapes API provides a programmatic way to integrate Shapes into any application or platform. It follows the OpenAI-compatible API standard, making it easy to implement with existing libraries and SDKs.
+
+To learn more about implementing Shapes in your app, check out our [examples repository](https://github.com/shapesinc/api).
 
 ## Getting Started
-Every API Key is tied to a specific Shape. You can provision up to 5 of them. Here's how to grab your Key: 
-<img width="807" alt="image" src="https://github.com/user-attachments/assets/ead6f28a-300b-4dcf-a555-313b39656ad6" />
+You will need to generate an API Key. Every API Key is tied to a specific Shape. Get yours [here](https://shapes.inc/developer)
 
+<img width="807" alt="API Key Generation" src="https://github.com/user-attachments/assets/ead6f28a-300b-4dcf-a555-313b39656ad6" />
 
-## Overview
-You can use the Shapes API in both Python and Node.js.
+## Implementation Examples
 
-- **Python** (3.12+), `pip`, and `virtualenv` for the Python examples.
+### 🐍 Python
 
-- **Node.js** (18+) and `npm` for the Node.js examples.
+```python
+import openai
+
+shapes_client = OpenAI(
+    api_key="<your-API-key>",
+    base_url="https://api.shapes.inc/v1/",
+)
+
+response = shapes_client.chat.completions.create(
+    model="shapesinc/<shape-username>",
+    messages=[
+        {"role": "user", "content": "Hello"}
+    ]
+)
+
+print(response)
 ```
-  - Base URL: `https://api.shapes.inc/v1/`
-  - Uses meta model `shapesinc/<shape-username>`
+
+### 🌐 JavaScript
+
+```javascript
+const openai = require("openai");
+
+const shapes_client = new OpenAI({
+    apiKey: "<your-API-key>",
+    baseURL: "https://api.shapes.inc/v1",
+});
+
+const response = await shapes_client.chat.completions.create({
+    model: "shapesinc/<shape-username>",
+    messages: [
+        { role: "user", content: "Hello" }
+    ]
+});
+
+console.log(response);
 ```
 
-All examples require the following API keys set as environment variables
-or in .env file (with VITE_ prefix if the example is a Vite project):
+### 🔄 CURL
 
-```
-SHAPESINC_API_KEY=your-shapes-api-key
-SHAPESINC_SHAPE_USERNAME=your-shape-username
+```bash
+curl -X POST https://api.shapes.inc/v1/chat/completions \
+     -H "Authorization: Bearer <your-API-key>" \
+     -H "Content-Type: application/json" \
+     -d '{"model": "shapesinc/<shape-username>", "messages": [{ "role": "user", "content": "Hello" }]}'
 ```
 
-Each example directory includes a `.env.example` you can copy as `.env` and add your keys.
+### Quick Setup
+
+| Requirement | Details |
+|-------------|---------|
+| Base URL | `https://api.shapes.inc/v1/` |
+| Model Format | `shapesinc/<shape-username>` |
+| Authentication | Bearer token in Authorization header |
+| Environment Variables | `SHAPESINC_API_KEY` and `SHAPESINC_SHAPE_USERNAME` |
+
+### API Specifications
+
+| Feature | Details |
+|---------|---------|
+| Endpoints | `/chat/completions` |
+| Rate Limits | 5 API Keys per account (request increase [here](https://docs.google.com/forms/d/e/1FAIpQLScGLeRk6snViRPslXbbUaMDwubcBhmcJ6opq7wFvPEp-EbO3g/viewform)) |
+| Headers | `X-User-Id` for user identification, `X-Channel-Id` for conversation context |
+| Response Format | Standard OpenAI-compatible JSON response |
+
+## Supported Commands
+
+Shapes now support the following commands:
+- `!reset` - Reset the conversation
+- `!sleep` - Put the shape to sleep
+- `!dashboard` - Access your dashboard
+- `!info` - Get information about the shape
+- `!web` - Search the web (now free for all users)
+- `!help` - Get help with commands
+- `!imagine` - Generate images
+- `!wack` - Wack command
+
+## Advanced Features
+
+| Feature | Details |
+|---------|---------|
+| Vision Support | Send OpenAI API compatible image_url with user messages |
+| Tool Calling | Shapes now support tool calling and MCP functionality |
+| Voice Features | Free voice for all shapes (custom or pre-made voices via shapes.inc) |
+| Voice Configuration | Option to disable voice transcripts (set via shapes.inc) |
+| Voice Formatting | Improved formatting for voice URLs with new line separation |
+
+## Important Notes
+
+### Current Limitations
+
+| Limitation | Details |
+|------------|---------|
+| No System Messages | Shape personality comes from configuration |
+| No Message History | API relies on Shape's built-in memory |
+| No Streaming | Only full responses are supported |
+| No Parameter Control | Temperature and other settings locked to shapes.inc settings configured for the Shape |
+| Extensions | Tool calling, Multi-agent Communication Protocol (MCP), vision support |
+
+Note: Shapes set on Premium Engines **WILL** use credits when accessed via API.
+
+## Available Integrations
+- [x] Telegram
+- [x] Revolt
+- [x] Slack
+- [x] Bluesky
+- [x] IRC
+- [x] Chess
+- [x] Voice
+
+
+
+## Requested Integrations
+We're looking for developer contributions to build:
+- [ ] Reddit
+- [ ] GitHub (to review PRs)
+- [ ] Threads
+- [ ] Roblox
+- [ ] Minecraft
+- [ ] Twitch
+- [ ] LinkedIn
+- [ ] Microsoft Teams
+- [ ] WeChat
+- [ ] Anything you can possibly imagine
+
+If you'd like to build an integration:
+1. Fork our repository
+2. Build your integration following our guidelines
+3. Submit a PR with comprehensive documentation
 
 ---
 © 2025 Shapes, Inc.
-
-## Contributing
-
-We are adding integrations with more platforms all the time. If you don't see your platform here, fork this repo, add it, and submit a PR.
-
-## Integrations
-
-| Integration Name | Folder Name | Status | Author |
-|------------------|-------------|--------|--------|
-| Python Basic | python-basic | ✅ | Shapes, Inc |
-| Node.js Basic | node-basic | ✅ | Shapes, Inc |
-| Shape Voice | shape-voice | ✅ | Shapes, Inc |
-| Slack Account | shape-slack | ✅ | Shapes, Inc |
-| Bluesky Account | shape-bluesky | ✅ | Shapes, Inc. |
-| Revolt Account | shape-revolt | ✅ | Shapes, Inc |
-| IRC | shape-irc | ✅ | Shapes, Inc |
-
