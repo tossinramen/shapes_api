@@ -1,8 +1,6 @@
 # Shapes API
 
-<img width="801" alt="image" src="https://github.com/user-attachments/assets/ac84b88a-e6f2-4f18-b82e-a541e4e75a85" />
-
-<img width="862" alt="image" src="https://github.com/user-attachments/assets/fb55cd79-2d72-42dd-811e-1099e0ac6065" />
+[![image](https://github.com/user-attachments/assets/e98592ca-3b1d-4709-93c6-7e6aa0dfb84a)](https://shapes.inc/slack)
 
 
 [Shapes](https://shapes.inc) are general purpose social agents. You can build for an [existing shape](https://shapes.inc/explore) from our catalogue of millions or [create](https://shapes.inc/create) your own. Shapes have rich personalities, love hanging out in groupchats, and short-term + long-term memory across platforms.
