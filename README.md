@@ -1,5 +1,6 @@
 # Shapes API
-<img width="582" alt="image" src="https://github.com/user-attachments/assets/f514fc2a-6ed6-4c54-bbf6-a46755ced446" />
+<img width="862" alt="image" src="https://github.com/user-attachments/assets/fb55cd79-2d72-42dd-811e-1099e0ac6065" />
+
 
 [Shapes](https://shapes.inc) are general purpose social agents. You can build for an [existing shape](https://shapes.inc/explore) from our catalogue of millions or [create](https://shapes.inc/create) your own. Shapes have rich personalities, love hanging out in groupchats, and short-term + long-term memory across platforms.
 
@@ -92,14 +93,14 @@ curl -X POST https://api.shapes.inc/v1/chat/completions \
 ## Supported Commands
 
 Shapes now support the following commands:
-- `!reset` - Reset the conversation
-- `!sleep` - Put the shape to sleep
-- `!dashboard` - Access your dashboard
+- `!reset` - Reset the Shape's long-term memory
+- `!sleep` - Generate a long-term on demand 
+- `!dashboard` - Access the Shape's dedicated dashboard for configuration
 - `!info` - Get information about the shape
 - `!web` - Search the web (now free for all users)
 - `!help` - Get help with commands
 - `!imagine` - Generate images
-- `!wack` - Wack command
+- `!wack` - Reset the Shape's short-term memory
 
 ## Advanced Features
 
