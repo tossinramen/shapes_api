@@ -136,8 +136,6 @@ Note: Shapes set on Premium Engines **WILL** use credits when accessed via API.
 - [x] Chess
 - [x] Voice
 
-
-
 ## Requested Integrations
 We're looking for developer contributions to build:
 - [ ] Reddit
@@ -155,6 +153,16 @@ If you'd like to build an integration:
 1. Fork our repository
 2. Build your integration following our guidelines
 3. Submit a PR with comprehensive documentation
+
+## Coming Soon
+We are shipping new features to the Shapes API every day. Next on our list is:
+
+| Feature | Details |
+|------------|---------|
+| Voice Recognition | Shapes can send voice messages but not hear any yet |
+| Authorize with Shapes, Inc | Authenticate users via a shapes inc account |
+| Free Will | Proactively take actions |
+| Messaging first | Shapes can't talk first...yet |
 
 ---
 © 2025 Shapes, Inc.
