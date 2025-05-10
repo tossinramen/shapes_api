@@ -9,7 +9,7 @@ The Shapes API enables developers to connect Shapes across social platforms, gam
 ## Open Source Contributions
 Our API is designed with extensibility as a core principle. You can extend any Shape for tool calling, MCP, and more.
 
-Star and contribute to this repository to receive complimentary hosting for your integration,. We will also be directing traffic from our user base to your integration.
+Star and contribute to this repository to receive free hosting for your integration. We will also be directing traffic from our user base to your integration.
 
 ## What is the Shapes API?
 Shapes API provides a programmatic way to integrate Shapes into any application or platform. It follows the OpenAI-compatible API standard, making it easy to implement with existing libraries and SDKs.
