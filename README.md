@@ -17,23 +17,21 @@ Shapes API provides a programmatic way to integrate Shapes into any application 
 
 To learn more about implementing Shapes in your app, check out our [examples repository](https://github.com/shapesinc/api).
 
-![Features](https://img.intercomm.in/su88a4.png)
+## Features
 
-Shapes API comes with many features that you probably won’t find in general APIs. Here's a quick overview:
+Shapes API comes with many features that you won’t find in general APIs. Here's a quick overview:
 
 ### Memories
-Shapes API supports memory!
-If you're using the API through a method linked to your Shapes Inc login (like email), Shapes will automatically reference your previous DM memories across sessions.
+Shapes API supports cross-platform, long-term and short-term memory! Shapes will automatically reference relevant memories across sessions.
 
 ### Image Generation
 You can generate images directly through Shapes API — just use the `!imagine` command or the relevant endpoint.
 
 ### 50+ Models
-Access all trending LLMs including GPT-4.1, Claude Sonnet 3.7, Gemini 2.5 Pro, and more — all through a single API. Models can be configured in the AI Engine tab on the selected shape's dashboard.
+Access all trending LLMs including GPT-4.1, Claude Sonnet 3.7, Gemini 2.5 Pro, and more — all through a single API. Models can be configured in the AI Engine tab on the selected Shape's dashboard.
 
 ### Voice Generation
-Shapes API supports voice messages!
-Configure your integration to send back audio replies using the built-in voice features.
+Shapes API supports voice messages. Configure your integration to send back audio replies using the built-in voice features.
 
 Check out the examples in the repo to learn how to use each of these features in your integration!
 
@@ -107,7 +105,7 @@ curl -X POST https://api.shapes.inc/v1/chat/completions \
 | Feature | Details |
 |---------|---------|
 | Endpoints | `/chat/completions` |
-| Rate Limits | 5 API Keys per account (request increase [here](https://docs.google.com/forms/d/e/1FAIpQLScGLeRk6snViRPslXbbUaMDwubcBhmcJ6opq7wFvPEp-EbO3g/viewform)) |
+| Rate Limits | 5 RPM (request increase [here](https://docs.google.com/forms/d/e/1FAIpQLScGLeRk6snViRPslXbbUaMDwubcBhmcJ6opq7wFvPEp-EbO3g/viewform)) |
 | Headers | `X-User-Id` for user identification, `X-Channel-Id` for conversation context |
 | Response Format | Standard OpenAI-compatible JSON response |
 
