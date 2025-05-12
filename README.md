@@ -17,24 +17,6 @@ Shapes API provides a programmatic way to integrate Shapes into any application 
 
 To learn more about implementing Shapes in your app, check out our [examples repository](https://github.com/shapesinc/api).
 
-## Features
-
-Shapes API comes with many features that you won’t find in general APIs. Here's a quick overview:
-
-### Memories
-Shapes API supports cross-platform, long-term and short-term memory! Shapes will automatically reference relevant memories across sessions.
-
-### Image Generation
-You can generate images directly through Shapes API — just use the `!imagine` command or the relevant endpoint.
-
-### 50+ Models
-Access all trending LLMs including GPT-4.1, Claude Sonnet 3.7, Gemini 2.5 Pro, and more — all through a single API. Models can be configured in the AI Engine tab on the selected Shape's dashboard.
-
-### Voice Generation
-Shapes API supports voice messages. Configure your integration to send back audio replies using the built-in voice features.
-
-Check out the examples in the repo to learn how to use each of these features in your integration!
-
 ## Getting Started
 You will need to generate an API Key. Every API Key is tied to a specific Shape. Get yours [here](https://shapes.inc/developer)
 
