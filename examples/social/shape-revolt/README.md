@@ -21,9 +21,9 @@ An integration for [Revolt](https://revolt.chat) that allows your Shape (social 
 ## Setup
 
 1. Clone this repository
-2. Navigate to the shape-revolt-bot directory:
+2. Navigate to the shape-revolt directory:
    ```
-   cd shape-revolt-bot
+   cd shape-revolt
    ```
 3. Install dependencies:
    ```
@@ -40,7 +40,10 @@ An integration for [Revolt](https://revolt.chat) that allows your Shape (social 
    SHAPESINC_SHAPE_USERNAME=your-shape-username
    REVOLT_SERVER_URL=https://autumn.revolt.chat  # Optional: Override default server URL for attachments
    ```
-
+6. change the file path to match your device
+```javascript
+   dotenv.config({ path: '/home/container/bot2/.env' }); //change to your device/host path
+```
    ## Picture Guide to Setup
 
    ![Revolt Bot Setup Picture Guide](https://github.com/user-attachments/assets/977b2c8f-3be8-4a09-9683-caf0a02188ed)
