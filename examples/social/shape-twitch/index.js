@@ -29,13 +29,14 @@ socket.on('message', async (data) => {
     if (userQuestion) {
       try {
         const shaperesponse = await processWithShapes(userQuestion);
-        socket.send(`${TWITCH_CHANNEL} :${shaperesponse}`);
+        socket.send(`PRIVMSG #${TWITCH_CHANNEL} :${shaperesponse}`);
       } catch (error) {
         console.error('Error processing with Shapes API:', error.message);
-        socket.send(`${TWITCH_CHANNEL} :Sorry, I encountered an error.`);
+        socket.send(`PRIVMSG #${TWITCH_CHANNEL} :Sorry, I encountered an error.`);
       }
     }
   }
+  
 
   if (message.includes("!shape")) {
     const shapePrompt = message.replace('!shape', '').trim();
